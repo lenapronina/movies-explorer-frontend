@@ -1,0 +1,73 @@
+.about {
+  margin: 0 auto;
+  width: calc(100% - 140px);
+  display: flex;
+  flex-direction: column;
+}
+
+.about-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+  list-style: none;
+}
+
+.about-info__heading {
+  margin: 0 0 26px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.about-info__paragraph {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.about-timing {
+  display: grid;
+  grid-template-columns: 140px auto;
+}
+
+.about-timing__time {
+  margin: 0;
+  padding: 9px 0;
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.about-timing__time_back {
+  background: #000000;
+  color: #ffffff;
+}
+
+.about-timing__time_front {
+  background: #f2f2f2;
+  color: #000000;
+}
+
+.about-timing__action {
+  margin: 14px 0 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+  color: #A0A0A0;
+}
+
+.about__about-info {
+  margin-bottom: 110px;
+}
+
+.about__about-timing{
+  margin-bottom: 110px;
+}
