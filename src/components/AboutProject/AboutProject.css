@@ -17,7 +17,6 @@
 
 .about-info__heading {
   margin: 0 0 26px;
-  font-weight: 400;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: -0.04em;
@@ -25,7 +24,6 @@
 
 .about-info__paragraph {
   margin: 0;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.43;
 }
@@ -39,7 +37,6 @@
   margin: 0;
   padding: 9px 0;
   display: block;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.2;
   text-align: center;
@@ -57,7 +54,6 @@
 
 .about-timing__action {
   margin: 14px 0 0;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.2;
   text-align: center;
