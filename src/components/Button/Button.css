@@ -1,0 +1,57 @@
+.button {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #000000;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button_type_signup {
+  margin-right: 30px;
+}
+
+.button_type_signin {
+  padding: 8px 20px;
+  border-radius: 3px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.button_type_movies {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+.button_type_movies:last-of-type {
+  margin-left: 20px;
+}
+
+.button_type_account {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+.button__image {
+  margin-left: 17px;
+  height: 30px;
+  width: 26px;
+}
+
+.button_active {
+  font-weight: 500;
+}
+
+.button:hover {
+  opacity: 0.8;
+  transition: all 0.2s ease-in;
+}

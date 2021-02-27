@@ -3,3 +3,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.navigation__movies-buttons {
+  margin-right: 50px;
+}

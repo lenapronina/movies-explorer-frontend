@@ -1,0 +1,10 @@
+.movies {
+  margin: 0 auto;
+  width: calc(100% - 140px);
+  display: flex;
+  flex-direction: column;
+}
+
+.movies__footer {
+  margin-bottom: 80px;
+}
