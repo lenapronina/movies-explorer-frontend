@@ -1,6 +1,57 @@
 .profile {
   margin: 0 auto;
   width: calc(100% - 140px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.profile__heading {
+  margin: 74px auto 123px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.profile__form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__label {
+  display: flex;
+  justify-content: space-between;
+  max-width: 410px;
+  width: 410px;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.18;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.profile__label:last-of-type {
+  padding: 17px 0 0;
+  border-bottom: none;
+}
+
+.profile__input {
+  border: none;
+  text-align: right;
+  outline: none;
+}
+
+.profile__input:disabled {
+  background-color: transparent;
+  color: #000;
+}
+
+.profile__controllers {
+  margin: 220px auto 0;
+  width: 410px;
+  
+  display: grid;
+  row-gap: 16px;
 }
