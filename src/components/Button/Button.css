@@ -54,6 +54,21 @@
   color: #FF4062;
 }
 
+.button_type_profile-save {
+  padding: 13px 0 15px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.21;
+  border-radius: 3px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.button_type_profile-save_disabled {
+  background:#F8F8F8;
+  color: #C2C2C2;
+}
+
 .button__image {
   margin-left: 17px;
   height: 30px;

@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../Button/Button';
 import './Profile.css';
 
 function Profile(params) {
 
+  const [ isEdit, setEdit ] = useState(false);
+
   const onChange = () =>{
     console.log('меняем')
+  }
+
+  const editProfile = () => {
+    if(isEdit) {
+      console.log('редактируем');
+      setEdit(false)
+    } else {
+      console.log('не редактируем');
+      setEdit(true)
+    }
   }
 
   return(
@@ -20,14 +32,28 @@ function Profile(params) {
         </label>
       </form>
       <div className="profile__controllers">
-        <Button 
-          clss='button_type_profile-edit' 
-          text='Редактировать'
-        />
-        <Button 
-          clss='button_type_profile-signout' 
-          text='Выйти из аккаунта'
-        />
+        { isEdit ? (
+          <>
+            <span className="profile__update-error">При обновлении профиля произошла ошибка.</span>
+            <Button 
+              clss='button_type_profile-save button_type_profile-save_disabled' 
+              text='Сохранить'
+              handleClick={editProfile}
+            />
+          </> 
+        ) : (
+          <>
+            <Button 
+              clss='button_type_profile-edit' 
+              text='Редактировать'
+              handleClick={editProfile}
+            />
+            <Button 
+              clss='button_type_profile-signout' 
+              text='Выйти из аккаунта'
+            />
+          </>)
+        }
       </div>
     </div>
   )
