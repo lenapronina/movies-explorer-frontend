@@ -19,3 +19,21 @@
 .header_type_profile {
   background-color: #F3C1F8;
 }
+
+@media (max-width: 1250px) {
+  .header {
+    width: calc(100% - 60px);
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    width: calc(100% - 150px);
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    width: 100%;
+  }
+}

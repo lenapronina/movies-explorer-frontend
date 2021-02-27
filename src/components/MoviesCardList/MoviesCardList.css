@@ -6,10 +6,29 @@
   display: grid;
   justify-content: space-between;
   grid-template-columns: repeat(auto-fit, 364px);
+  column-gap: 1px;
   row-gap: 37px;
   list-style: none;
 }
 
 .movies__movies-list {
   margin: 70px 0 60px;
+}
+
+@media (max-width: 1250px) {
+  .movie-list {
+    grid-template-columns: repeat(auto-fit, 339px);
+  }
+}
+
+@media (max-width: 1166px) {
+  .movie-list {
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 901px) {
+  .movie-list {
+    justify-content: space-between;
+  }
 }

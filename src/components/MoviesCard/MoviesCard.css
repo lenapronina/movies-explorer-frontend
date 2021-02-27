@@ -54,3 +54,18 @@
   background-image: url(../../images/movie-like-active.svg);
   cursor: pointer;
 }
+
+@media (max-width: 1250px) {
+  .movie {
+    max-width: 339px;
+    max-height: 262px;
+  }
+  .movie__preview {
+    height: 190px;
+  }
+
+  .movie__info {
+    padding: 14px;
+    grid-template-columns: 260px auto;
+  }
+}

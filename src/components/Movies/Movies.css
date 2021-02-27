@@ -8,3 +8,9 @@
 .movies__footer {
   margin-bottom: 80px;
 }
+
+@media (max-width: 901px) {
+  .movies {
+    width: calc(100% - 60px);
+  }
+}
