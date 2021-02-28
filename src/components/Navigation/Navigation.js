@@ -13,14 +13,34 @@ function Navigation(){
     //     text={'Войти'}
     //   />
     // </div>
-    <div className="navigation navigation_type_movies">
-      <div className="navigation__movies-buttons">
+    // <div className="navigation navigation_type_movies">
+    //   <div className="navigation__movies-buttons">
+    //     <Button
+    //       clss={'button_type_movies button_active'}
+    //       text={'Фильмы'}
+    //     />
+    //     <Button
+    //       clss={'button_type_movies'}
+    //       text={'Сохранённые фильмы'}
+    //     />
+    //   </div>
+    //   <Button 
+    //      clss={'button_type_account'}
+    //      text={'Аккаунт'}
+    //   />
+    // </div>
+    <div className="navigation navigation_type_mobile">
+      <div className="navigation__movies-buttons navigation__movies-buttons_type_mobile">
         <Button
-          clss={'button_type_movies button_active'}
+          clss={'button_type_mobile'}
+          text={'Главная'}
+        />
+        <Button
+          clss={'button_type_mobile button_type_mobile_active'}
           text={'Фильмы'}
         />
         <Button
-          clss={'button_type_movies'}
+          clss={'button_type_mobile button_type_mobile_active'}
           text={'Сохранённые фильмы'}
         />
       </div>

@@ -20,20 +20,23 @@
   background-color: #F3C1F8;
 }
 
-@media (max-width: 1250px) {
-  .header {
+.header__burger-button {
+  padding: 0;
+  border: none;
+  outline: none;
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../../images/header-burger-menu.svg);
+  cursor: pointer;
+}
+
+@media (max-width: 901px) {
+  .header__content {
     width: calc(100% - 60px);
-  }
-}
-
-@media (max-width: 600px) {
-  .header {
-    width: calc(100% - 150px);
-  }
-}
-
-@media (max-width: 425px) {
-  .header {
-    width: 100%;
   }
 }

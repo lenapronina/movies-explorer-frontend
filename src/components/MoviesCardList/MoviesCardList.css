@@ -29,6 +29,11 @@
 
 @media (max-width: 901px) {
   .movie-list {
+    row-gap: 30px;
     justify-content: space-between;
+  }
+
+  .movies__movies-list {
+    margin: 83px 0 80px;
   }
 }

@@ -5,8 +5,8 @@
 }
 
 .search__form {
-  margin: 86px 0 30px;
-  padding-bottom: 15px;
+  margin: 73px 0 29px;
+  padding-bottom: 12px;
   display: flex;
   border-bottom: 1px solid #E8E8E8;
 }
@@ -55,4 +55,11 @@
 
 .search__checkbox-label {
   margin-bottom: 48px;
+}
+
+
+@media (max-width: 901px) {
+  .search__form {
+    margin: 89px 0 29px;
+  }
 }

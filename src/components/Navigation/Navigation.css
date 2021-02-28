@@ -7,3 +7,18 @@
 .navigation__movies-buttons {
   margin-right: 50px;
 }
+
+.navigation_type_mobile {
+  padding: 105px 0 92px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navigation__movies-buttons_type_mobile {
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
