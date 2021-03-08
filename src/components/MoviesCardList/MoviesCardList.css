@@ -37,3 +37,15 @@
     margin: 83px 0 80px;
   }
 }
+
+@media (max-width: 700px) {
+  .movie-list {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+  }
+
+  .movies__movies-list {
+    margin: 90px 0 76px;
+  }
+  
+}

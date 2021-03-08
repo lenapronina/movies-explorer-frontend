@@ -13,9 +13,9 @@ function MoviesCardList({ path }) {
       <MoviesCard />
       <MoviesCard />
       <MoviesCard />
+      {/* <MoviesCard />
       <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
+      <MoviesCard /> */}
     </ul>
   )
 }

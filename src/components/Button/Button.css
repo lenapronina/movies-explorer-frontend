@@ -23,6 +23,17 @@
   color: #ffffff;
 }
 
+.button_type_signup-sign {
+  padding: 13px 0 15px;
+  width: 100%;
+  border-radius: 3px;
+  background: #000000;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+}
+
 .button_type_movies {
   font-weight: 400;
   font-size: 14px;
@@ -81,6 +92,12 @@
   color: #ffffff;
 }
 
+.button_type_goback {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+}
+
 .button_type_profile-save_disabled {
   background:#F8F8F8;
   color: #C2C2C2;
@@ -99,4 +116,11 @@
 .button:hover {
   opacity: 0.8;
   transition: all 0.2s ease-in;
+}
+
+@media (max-width: 700px) {
+  .button_type_goback {
+    font-size: 12px;
+    line-height: 1.25;
+  }
 }

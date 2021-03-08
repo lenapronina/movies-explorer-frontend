@@ -12,3 +12,16 @@
 .saved-movies__movie-list {
   margin: 70px 0 107px;
 }
+
+
+@media (max-width: 901px) {
+  .saved-movies {
+    width: calc(100% - 60px);
+  }
+}
+
+@media (max-width: 700px) {
+  .saved-movies {
+    width: calc(100% - 20px);
+  }
+}

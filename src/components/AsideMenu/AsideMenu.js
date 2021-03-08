@@ -4,7 +4,7 @@ import './AsideMenu.css';
 
 function AsideMenu({isOpen, closeMenu}) {
 
-  const menuOpened = isOpen ?  ' aside_opened' : null;
+  const menuOpened = isOpen ? ' aside_opened' : null;
 
   return(
     <aside className={`aside ${menuOpened}`}>

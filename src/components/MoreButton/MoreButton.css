@@ -18,3 +18,9 @@
   opacity: 0.8;
 }
 
+@media (max-width: 901px) {
+  .more-button {
+    width: 240px;
+  }
+}
+

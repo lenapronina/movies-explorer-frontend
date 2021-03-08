@@ -22,15 +22,17 @@ function Profile(params) {
 
   return(
     <div className="profile">
-      <h2 className="profile__heading">Привет, Виталий!</h2>
-      <form className="profile__form">
-        <label className="profile__label">Имя
-          <input className="profile__input" name="user" type="text" minLength="2" maxLength="40" required="" value="Виталя" onChange={onChange} disabled></input>
-        </label>
-        <label className="profile__label">Почта
-          <input className="profile__input" name="mail" type="mail" value="pochta@yandex.ru" onChange={onChange} disabled></input>
-        </label>
-      </form>
+      <div className="profile__data">
+        <h2 className="profile__heading">Привет, Виталий!</h2>
+        <form className="profile__form">
+          <label className="profile__label">Имя
+            <input className="profile__input" name="user" type="text" minLength="2" maxLength="40" required="" value="Виталий" onChange={onChange} disabled></input>
+          </label>
+          <label className="profile__label">Почта
+            <input className="profile__input" name="mail" type="mail" value="pochta@yandex.ru" onChange={onChange} disabled></input>
+          </label>
+        </form>  
+      </div>
       <div className="profile__controllers">
         { isEdit ? (
           <>

@@ -6,7 +6,7 @@ import Navigation from '../Navigation/Navigation';
 function Header({mobileMenu, clickMenu}){
 
   const clickClick = () => {
-    clickMenu()
+    clickMenu();
   }
   
   return (
@@ -22,7 +22,9 @@ function Header({mobileMenu, clickMenu}){
       <header className="header">
       <div className="header__content">
         <img className="header__logo" src={headerLogo} alt="Логотип сервиса"/>
-        <Navigation />
+        <Navigation 
+          mobileMenu={mobileMenu}
+        />
       </div>
     </header>
     )
