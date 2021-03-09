@@ -7,8 +7,8 @@ function AboutMe(){
   return(
     <section className="aboutme">
       <SectionHeader
-        clss={'section-header__about'}
-        text={'Студент'}
+        layoutClass="section-header__aboutme"
+        text="Студент"
       />
       <div className="aboutme-info">
         <div className="aboutme-info__bio">
@@ -20,10 +20,10 @@ function AboutMe(){
           </div>
           <ul className="aboutme-info__links">
             <li className="aboutme-info__link-item">
-              <a className="aboutme-info__link" href="https://www.facebook.com/lenaemaya">Facebook</a>
+              <a className="aboutme-info__link" href="https://www.facebook.com/lenaemaya" target="_blank" rel="noreferrer">Facebook</a>
             </li>
             <li className="aboutme-info__link-item">
-              <a className="aboutme-info__link" href="https://github.com/lenapronina">Github</a>
+              <a className="aboutme-info__link" href="https://github.com/lenapronina" target="_blank" rel="noreferrer">Github</a>
             </li>
           </ul>
         </div>

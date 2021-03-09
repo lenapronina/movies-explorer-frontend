@@ -5,8 +5,8 @@ function AboutProject(){
   return (
     <section className="about">
       <SectionHeader 
-        clss={'section-header__about'}
-        text={"О проекте"}
+        layoutClass="section-header__about"
+        text="О проекте"
       />
       <ul className="about-info about__about-info">
         <li className="about-info__item">

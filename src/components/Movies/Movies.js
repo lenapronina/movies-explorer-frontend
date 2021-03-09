@@ -4,12 +4,15 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import MoreButton from '../MoreButton/MoreButton';
 import Footer from '../Footer/Footer';
 
-function Movies(params) {
+function Movies({path}) {
   return (
     <>
       <div className="movies movies__footer">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList 
+          path={path}
+          badSearch={false}
+        />
         <MoreButton />
       </div>
       <Footer />

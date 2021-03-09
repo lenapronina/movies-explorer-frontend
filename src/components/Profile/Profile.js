@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import Button from '../Button/Button';
 import './Profile.css';
 
-function Profile(params) {
+function Profile({goLanding}) {
 
   const [ isEdit, setEdit ] = useState(false);
 
-  const onChange = () =>{
-    console.log('меняем')
+// fix function 
+  const onChange = () => {
+    console.log('меняем');
   }
+// fix function 
 
   const editProfile = () => {
     if(isEdit) {
-      console.log('редактируем');
-      setEdit(false)
+      setEdit(false);
     } else {
-      console.log('не редактируем');
-      setEdit(true)
+      setEdit(true);
     }
   }
 
@@ -38,7 +38,7 @@ function Profile(params) {
           <>
             <span className="profile__update-error">При обновлении профиля произошла ошибка.</span>
             <Button 
-              clss='button_type_profile-save button_type_profile-save_disabled' 
+              mode='button_type_profile-save button_color_disabled' 
               text='Сохранить'
               handleClick={editProfile}
             />
@@ -46,13 +46,14 @@ function Profile(params) {
         ) : (
           <>
             <Button 
-              clss='button_type_profile-edit' 
+              mode='button_type_profile' 
               text='Редактировать'
               handleClick={editProfile}
             />
             <Button 
-              clss='button_type_profile-signout' 
+              mode='button_type_profile button_color_signout' 
               text='Выйти из аккаунта'
+              handleClick={goLanding}
             />
           </>)
         }

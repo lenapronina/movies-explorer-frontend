@@ -21,6 +21,10 @@
   row-gap: 17px;
 }
 
+.movie__info_saved-movies {
+  cursor: pointer;
+}
+
 .movie__name {
   margin: 0;
   font-weight: 500;
@@ -38,7 +42,7 @@
   color: #A0A0A0;
 }
 
-.movie__save {
+.movie__button {
   padding: 0;
   height: 12px;
   width: 14px;
@@ -51,8 +55,28 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(../../images/movie-like-active.svg);
   cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.movie__button_save {
+  background-image: url(../../images/movie-like.svg);
+}
+
+.movie__button_save_active {
+  background-image: url(../../images/movie-like-active.svg);
+}
+
+.movie__info_saved-movies .movie__button_remove {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.movie__info_saved-movies:hover .movie__button_remove {
+  background-image: url(../../images/movie-remove.svg);
+  visibility: visible;
+  opacity: 1;
 }
 
 @media (max-width: 1250px) {

@@ -2,7 +2,6 @@ import React from 'react';
 import './SavedMovies.css';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import MoreButton from '../MoreButton/MoreButton';
 import Footer from '../Footer/Footer';
 
 function SavedMovies({path}) {
@@ -11,6 +10,7 @@ function SavedMovies({path}) {
       <div className="saved-movies">
         <SearchForm />
         <MoviesCardList 
+          badSearch={false}
           path={path}
         />
         <div className="saved-movies__divider"></div>

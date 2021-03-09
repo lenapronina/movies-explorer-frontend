@@ -10,10 +10,10 @@ function NotFoundPage({goBack}) {
         <p className="notFound__description">Страница не найдена</p>
       </div>
       <Button
-          clss={'button_type_goback'}
-          handleClick={goBack}
-          text='Назад'
-        />
+        mode={'button_type_goback'}
+        handleClick={goBack}
+        text='Назад'
+      />
     </div>
   )
 }

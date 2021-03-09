@@ -6,7 +6,7 @@ function Techs(){
     <section className="techs">
       <div className="techs__content">
         <SectionHeader 
-          clss={'section-header__techs'}
+          layoutClass={'section-header__techs'}
           text={"Технологии"}
         />
         <h3 className="techs__number">7 технологий</h3>

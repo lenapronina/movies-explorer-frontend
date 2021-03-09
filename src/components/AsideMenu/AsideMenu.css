@@ -29,12 +29,12 @@
 }
 
 .aside__close-button {
-  margin: 19px 19px 0 0;
+  margin: 29px 27px 0 0;
   padding: 0;
   border: none;
   outline: none;
-  width: 18px;
-  height: 18px;
+  width: 23px;
+  height: 23px;
   align-self: flex-end;
   box-sizing: border-box;
   background-color: transparent;
@@ -56,5 +56,9 @@
 
   .aside__menu {
     width: 100%;
+  }
+
+  .aside__close-button {
+    margin: 21px 18px 0 0;
   }
 }

@@ -11,18 +11,16 @@
   border-bottom: 1px solid #E8E8E8;
 }
 
+.search__icon {
+  width: 40px;
+}
+
 .search__input {
   padding: 0;
   width: 100%;
   text-align: center;
   border: none;
   outline: none;
-}
-
-.search__image {
-  display: block;
-  width: 34px;
-  height: 34px;
 }
 
 .search__input::placeholder {
@@ -64,7 +62,7 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
   .search {
     margin: 0 auto;

@@ -1,9 +1,9 @@
 import './SectionHeader.css';
 
-function SectionHeader({clss, text}){
-  const classk = `${clss} section-header`
+function SectionHeader({layoutClass, text}){
+  const fullClassName = `${layoutClass} section-header`
   return (
-    <h2 className={classk}>{text}</h2>
+    <h2 className={fullClassName}>{text}</h2>
   )
 }
 

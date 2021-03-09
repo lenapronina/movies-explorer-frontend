@@ -1,7 +1,6 @@
 import './SearchForm.css';
 import searchIcon from '../../images/search-icon.svg';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-// import Preloader from '../Preloader/Preloader';
 
 function SearchForm(params) {
   return(
@@ -12,7 +11,6 @@ function SearchForm(params) {
         <button className="search__button" type="submit"></button>
       </form>
       <FilterCheckbox />
-      {/* <Preloader /> */}
     </div>
     
   )

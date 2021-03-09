@@ -55,6 +55,11 @@
   line-height: 1.2;
   color: #000000;
   text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+
+.aboutme-info__link:hover {
+  opacity: 0.7;
 }
 
 .aboutme-info__foto {
@@ -65,5 +70,112 @@
 }
 
 .aboutme__portfolio {
-  margin: 100px 0 125px;
+  margin: 100px 0 117px;
+}
+
+@media (max-width: 1024px) {
+  .aboutme-info__bio {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 901px) {
+  .aboutme {
+    width: calc(100% - 100px);
+  }
+
+  .aboutme-info__bio {
+    max-width: 364px;
+  }
+
+  .aboutme-info__name {
+    margin: 0 0 15px;
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  .aboutme-info__short {
+    margin: 0 0 20px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .aboutme-info__description {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .aboutme-info__foto {
+    height: 307px;
+    width: 255px;
+  }
+
+  .aboutme__portfolio {
+    margin: 90px 0 81px;
+  }
+}
+
+@media (max-width: 700px){
+  .aboutme-info__bio {
+    max-width: 270px;
+  }
+
+  .aboutme-info__foto {
+    height: 235px;
+    width: 195px;
+  }
+
+  .aboutme-info__description {
+    margin: 0 0 38px;
+  }
+}
+
+@media (max-width: 550px) {
+  .aboutme {
+    width: calc(100% - 28px);
+  }
+
+  .aboutme-info__bio {
+    max-width: 100%;
+  }
+
+  .aboutme-info {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .aboutme-info__foto {
+    margin: 0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: 352px;
+    width: 292px;
+  }
+
+  .aboutme-info__name {
+    margin: 40px 0 21px;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .aboutme-info__short {
+    margin: 0 0 21px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .aboutme-info__description {
+    margin: 0 0 38px;
+    font-size: 11px;
+    line-height: 1.46;
+  }
+
+  .aboutme-info__link-item:last-of-type {
+    margin-left: 26px;
+  }
+
+  .aboutme__portfolio {
+    margin: 70px 0 78px;
+  }
 }

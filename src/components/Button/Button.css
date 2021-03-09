@@ -4,7 +4,7 @@
   background: transparent;
   border: none;
   outline: none;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
   color: #000000;
@@ -12,32 +12,33 @@
   text-align: center;
 }
 
-.button_type_signup {
-  margin-right: 30px;
-}
-
-.button_type_signin {
-  padding: 8px 20px;
+.button_type_landing {
+  font-weight: 500;
   border-radius: 3px;
-  background: #000000;
-  color: #ffffff;
 }
 
-.button_type_signup-sign {
+.button_type_sign {
   padding: 13px 0 15px;
   width: 100%;
   border-radius: 3px;
   background: #000000;
   color: #ffffff;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.21;
 }
 
 .button_type_movies {
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
+}
+
+.button_type_movies_active {
+  font-weight: 500;
+}
+
+.button_type_sign-simple {
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 .button_type_mobile {
@@ -57,10 +58,6 @@
   border-bottom: 2px solid #000;
 }
 
-.button_type_movies:last-of-type {
-  margin-left: 20px;
-}
-
 .button_type_account {
   display: flex;
   align-items: center;
@@ -69,17 +66,15 @@
   line-height: 1.14;
 }
 
-.button_type_profile-edit {
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1.23;
+.button__image {
+  margin-left: 17px;
+  height: 30px;
+  width: 26px;
 }
 
-.button_type_profile-signout {
-  font-weight: 400;
+.button_type_profile {
   font-size: 13px;
   line-height: 1.23;
-  color: #FF4062;
 }
 
 .button_type_profile-save {
@@ -88,8 +83,6 @@
   font-size: 14px;
   line-height: 1.21;
   border-radius: 3px;
-  background: #000000;
-  color: #ffffff;
 }
 
 .button_type_goback {
@@ -98,19 +91,19 @@
   line-height: 1.29;
 }
 
-.button_type_profile-save_disabled {
+.button_color_black {
+  padding: 8px 20px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.button_color_signout {
+  color: #FF4062;
+}
+
+.button_color_disabled {
   background:#F8F8F8;
   color: #C2C2C2;
-}
-
-.button__image {
-  margin-left: 17px;
-  height: 30px;
-  width: 26px;
-}
-
-.button_active {
-  font-weight: 500;
 }
 
 .button:hover {
@@ -118,8 +111,49 @@
   transition: all 0.2s ease-in;
 }
 
+.button_position_landing {
+  margin-right: 30px;
+}
+
+.button_position_movies {
+  margin-left: 20px;
+}
+
 @media (max-width: 700px) {
+  .button_type_landing {
+    
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .button_position_landing {
+    margin-right: 14px;
+  }
+
+  .button_type_mobile {
+    margin-bottom: 21px;
+  }
+
+  .button_type_mobile_active {
+    padding-bottom: 7px;
+  }
+
+  .button_color_black {
+    padding: 5px 12px;
+  }
+
   .button_type_goback {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .button_type_sign-simple {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .button_type_signup-sign {
+    padding: 15px 0;
     font-size: 12px;
     line-height: 1.25;
   }

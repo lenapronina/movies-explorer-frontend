@@ -31,7 +31,7 @@
 
 .about-timing {
   display: grid;
-  grid-template-columns: 140px auto;
+  grid-template-columns: 228px auto;
 }
 
 .about-timing__time {
@@ -67,4 +67,77 @@
 
 .about__about-timing{
   margin-bottom: 110px;
+}
+
+@media (max-width: 901px) {
+  .about {
+    width: calc(100% - 100px);
+  }
+
+  .about-info {
+    column-gap: 30px;
+  }
+
+  .about-info__heading {
+    margin: 0 0 23px;
+  }
+
+  .about-info__paragraph {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .about__about-info {
+    margin-bottom: 94px;
+  }  
+
+  .about-timing {
+    grid-template-columns: 140px auto;
+  }
+
+  .about__about-timing {
+    margin-bottom: 92px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about {
+    width: calc(100% - 36px);
+  }
+
+  .about__about-info {
+    grid-template-columns: 1fr;
+    row-gap: 56px;
+  }
+
+  .about-info__heading {
+    margin: 0 0 20px;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  .about-info__paragraph {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .about__about-info {
+    margin-bottom: 62px;
+  }
+
+  .about-timing {
+    grid-template-columns: 100px auto;
+  }
+
+  .about-timing__time {
+    padding: 11px 0;
+    font-size: 11px;
+    line-height: 1.18;
+  }
+
+  .about-timing__action {
+    margin: 10px 0 0;
+    font-size: 11px;
+    line-height: 1.18;
+  }
 }

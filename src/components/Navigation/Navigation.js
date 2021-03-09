@@ -1,65 +1,85 @@
+import React from 'react';
 import './Navigation.css';
 import Button from '../Button/Button';
+import accountIcon from '../../images/navigation-account-icon.svg';
 
-function Navigation({mobileMenu}){
+function Navigation({
+  loggedIn,
+  mobileMenu,
+  signIn,
+  signUp,
+  goMovies,
+  goProfile,
+  goSavedMovies
+}){
+
   return (
-    mobileMenu ? (
-      <>
-        <div className="navigation navigation_type_mobile">
-        <div className="navigation__movies-buttons navigation__movies-buttons_type_mobile">
-          <Button
-            clss={'button_type_mobile'}
-            text={'Главная'}
-          />
-          <Button
-            clss={'button_type_mobile button_type_mobile_active'}
-            text={'Фильмы'}
-          />
-          <Button
-            clss={'button_type_mobile button_type_mobile_active'}
-            text={'Сохранённые фильмы'}
-          />
-        </div>
-        <Button 
-           clss={'button_type_account'}
-           text={'Аккаунт'}
-        />
-        </div>
-      </>
-    ) : (
-      <>
-      {/* <div className="navigation navigation_type_profile">
-       <Button
-        clss={'button_type_signup'}
-        text={'Регистрация'}
-      />
-      <Button
-        clss={'button_type_signin'}
-        text={'Войти'}
-      />
-    </div> */}
-    <div className="navigation navigation_type_movies">
-      <div className="navigation__movies-buttons">
+    loggedIn ?  (
+      <div className="navigation navigation_type_profile">
         <Button
-          clss={'button_type_movies button_active'}
-          text={'Фильмы'}
+          mode={'button_type_landing button_position_landing'}
+          text={'Регистрация'}
+          handleClick={signUp}
         />
         <Button
-          clss={'button_type_movies'}
-          text={'Сохранённые фильмы'}
+          mode={'button_color_black button_type_landing'}
+          text={'Войти'}
+          handleClick={signIn}
         />
       </div>
-      <Button 
-         clss={'button_type_account'}
-         text={'Аккаунт'}
-      />
-    </div>
+    ) : ( mobileMenu ? (
+      <>
+        <div className="navigation navigation_type_mobile">
+          <div className="navigation__movies-buttons navigation__movies-buttons_type_mobile">
+            <Button
+              mode="button_type_mobile"
+              text="Главная"
+              handleClick={goProfile}
+            />
+            <Button
+              mode="button_type_mobile button_type_mobile_active"
+              text="Фильмы"
+              handleClick={goMovies}
+            />
+            <Button
+              mode="button_type_mobile"
+              text="Сохранённые фильмы"
+              handleClick={goSavedMovies}
+            />
+          </div>
+          <Button 
+            mode="button_type_account"
+            text="Аккаунт"
+            handleClick={goProfile}
+          ><img className="button__image" alt="Иконка профиля" src={accountIcon} /></Button>
+        </div>
       </>
-
+      ) : (
+        <div className="navigation navigation_type_movies">
+          <div className="navigation__movies-buttons">
+            <Button
+              mode="button_type_movies button_type_movies_active"
+              text="Фильмы"
+              handleClick={goMovies}
+              
+            />
+            <Button
+              mode="button_type_movies button_position_movies"
+              text="Сохранённые фильмы"
+              handleClick={goSavedMovies}
+            />
+          </div>
+          <Button 
+             mode="button_type_account"
+             text="Аккаунт"
+             handleClick={goProfile}
+          ><img className="button__image" alt="Иконка профиля" src={accountIcon} /></Button>
+        </div>
+      )
     )
-    
-    
   )
 }
 
 export default Navigation;
+
+
