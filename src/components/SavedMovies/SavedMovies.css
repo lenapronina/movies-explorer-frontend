@@ -1,0 +1,35 @@
+.saved-movies {
+  margin: 0 auto;
+  width: calc(100% - 140px);
+  display: flex;
+  flex-direction: column;
+}
+
+.saved-movies__divider {
+  height: 140px;
+}
+
+.saved-movies__movie-list {
+  margin: 70px 0 107px;
+}
+
+
+@media (max-width: 901px) {
+  .saved-movies {
+    width: calc(100% - 60px);
+  }
+
+  .saved-movies__movie-list {
+    margin: 82px 0 32px;
+  }
+}
+
+@media (max-width: 700px) {
+  .saved-movies {
+    width: calc(100% - 20px);
+  }
+
+  .saved-movies__movie-list {
+    margin: 90px 0 35px;
+  }
+}

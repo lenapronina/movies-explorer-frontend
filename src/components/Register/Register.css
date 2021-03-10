@@ -1,0 +1,104 @@
+.sign-container {
+  margin: 0 auto;
+  width:  396px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sign-label {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #A0A0A0; 
+}
+
+.sign-label .sign-input:focus {
+  border-bottom: 1px solid #000000;
+}
+
+.sign-label__error  .sign-input:focus {
+  border-bottom: 1px solid #FF4062;
+}
+
+.sign-label:last-of-type {
+  margin-bottom: 0;
+}
+
+.sign-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #E8E8E8;
+  padding: 5px 0 10px;
+  font-size: 14px;
+  line-height: 1.21;
+}
+
+.sign-input__error {
+  color: #FF4062;
+}
+
+.sign__error {
+  height: 12px;
+  margin-top: 6px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #FF4062;
+}
+
+.sign-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-form__sign-register {
+  margin-top: 133px;
+}
+
+.sign-form__sign-login {
+  margin-top: 203px;
+}
+
+
+.sign__paragraph {
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  text-align: center;
+  color: #A0A0A0;
+}
+
+@media (max-width: 700px){
+  .sign-container {
+    width: calc(100% - 60px);
+    padding: 56px 0 30px;
+    height: calc(100vh - 86px);
+    justify-content: space-between;
+  }
+
+  .sign__paragraph {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .sign-form__sign-register {
+    margin-top: 0px;
+  }
+  
+  .sign-form__sign-login {
+    margin-top: 0px;
+  }
+}

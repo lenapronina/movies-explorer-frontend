@@ -1,0 +1,22 @@
+.movies {
+  margin: 0 auto;
+  width: calc(100% - 140px);
+  display: flex;
+  flex-direction: column;
+}
+
+.movies__footer {
+  margin-bottom: 80px;
+}
+
+@media (max-width: 901px) {
+  .movies {
+    width: calc(100% - 60px);
+  }
+}
+
+@media (max-width: 700px) {
+  .movies {
+    width: calc(100% - 20px);
+  }
+}

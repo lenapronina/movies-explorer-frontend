@@ -1,0 +1,57 @@
+.section-header {
+  margin: 0;
+  display: block;
+  padding: 0 0 23px;
+  border-bottom: 1px solid #000000;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.22;
+  letter-spacing: -0.04em;
+}
+
+.section-header__about {
+  margin: 110px 0 69px;
+}
+
+.section-header__techs {
+  margin: 105px 0 90px;
+}
+
+.section-header__aboutme {
+  margin: 110px 0 69px;
+}
+
+@media (max-width: 901px) {
+  .section-header__about {
+    margin: 91px 0 68px;
+  }
+
+  .section-header__aboutme {
+    margin: 91px 0 68px;
+  }
+
+  .section-header__techs {
+    margin: 91px 0 80px;
+  }
+}
+
+@media (max-width: 700px) {
+  .section-header {
+    padding: 0 0 28px;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  .section-header__about {
+    margin: 70px 0 62px;
+  }
+
+  .section-header__techs {
+    margin: 49px 0 60px;
+  }
+
+  .section-header__aboutme {
+    margin: 51px 0 60px;
+  }
+}
+
