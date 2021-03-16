@@ -13,6 +13,7 @@ import AsideMenu from '../AsideMenu/AsideMenu';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import * as MainApi from '../../utils/MainApi';
 
@@ -31,8 +32,14 @@ function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [path, setPath] = useState('/');
+  
+  const [ isProfileEdit, setProfileEdit ] = useState(false);
 
   const [registerSuccess, setRegisterSuccess] = useState(false);
+
+  const [registerError, setRegisterError] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const [profileError, setProfileError] = useState('');
 
   const routes = ["/signup", "/signin", "/notFound"];
 
@@ -64,74 +71,119 @@ function App() {
   function goLanding(){
     history.push('/');
     setPath('/');
-    setLoggedIn(true);
   }
 
   function goSignIn(){
     history.push('/signin');
     setPath('/signin');
-    setLoggedIn(false);
   }
 
   function goSignUp(){
     history.push('/signup');
     setPath('/signup');
-    setLoggedIn(false);
   }
 
   function goMovies(){
     history.push('/movies');
     setPath('/movies');
-    setLoggedIn(false);
+    if(mobileMenu){
+      toggleMobileMenu();
+    }
   }
 
   function goSavedMovies(){
     history.push('/saved-movies');
     setPath('/saved-movies');
-    setLoggedIn(false);
+    if(mobileMenu){
+      toggleMobileMenu();
+    }
+
   }
 
   function goProfile(){
     history.push('/profile');
     setPath('/profile');
-    setLoggedIn(false);
+    if(mobileMenu){
+      toggleMobileMenu();
+    }
   }
 
   function handleRegisterSuccess(value){
     setRegisterSuccess(value);
   }
 
+  const handleUpdateUser = (updatedData) => {
+    
+    MainApi.updateUserInfo(updatedData, localStorage.getItem('jwt'))
+      .then((updatedUserData)=> {
+        // update user info avatar with new data
+        setCurrentUser(updatedUserData);
+        setProfileEdit(false);
+      })
+      .catch((err)=> {
+        setProfileError(err);
+        setProfileEdit(true);
+      });
+  }
 
-  const onRegister = (name, email, password) => {
-    MainApi.register(name, email, password)
+  const onLogin = (inputValues) => {
+    MainApi.authorize(inputValues.email, inputValues.password)
+      .then((data) => {
+        if (data.token) {
+          setLoggedIn(true);
+          history.push('/movies');
+          setPath('/movies');
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+        setLoginError(err); 
+      });
+  }
+
+  const onRegister = (inputValues) => {
+    MainApi.register(inputValues.name, inputValues.email, inputValues.password)
     .then((res) => {
       if(res.statusCode !== 400){
         handleRegisterSuccess(true);
-      } else {
-        handleRegisterSuccess(false);
+        onLogin(inputValues);
       }
     })
     .catch((err)=> {
-      handleRegisterSuccess(false);
-      console.log(err);
+      //handleRegisterSuccess(false);
+      console.log(err)
+      setRegisterError(err); 
     });
   }
 
-  const checkLoggedIn = useCallback(() => {
-    if(history.location.pathname === '/'){
-      setLoggedIn(true);
-    } else {
-      setLoggedIn(false);
-    }
-  }, [history])
-  
+  function handleSignOut(){
+    localStorage.removeItem('jwt');
+    setLoggedIn(false);
+    history.push('/signin');
+    setPath('/signin');
+  }
+
+  const tokenCheck = () => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt){
+      MainApi.getContent(jwt)
+        .then((res) => {
+          if(res){
+            setLoggedIn(true);
+            setCurrentUser(res);
+          }
+        })
+        .catch((err) => console.log(err)); 
+    }   
+  }
+
   useEffect(()=> {
     checkScreenWidth();
   });
 
-  useEffect(()=>{
-    checkLoggedIn();
-  }, [checkLoggedIn])
+  useEffect(() => {
+    tokenCheck();
+  }, [loggedIn, history]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -153,6 +205,7 @@ function App() {
                   clickMenu={toggleMobileMenu}
                 />
                 <AsideMenu
+                  loggedIn={loggedIn}
                   isOpen={isMenuOpen}
                   closeMenu={toggleMobileMenu} 
                   signIn={goSignIn}
@@ -167,45 +220,57 @@ function App() {
             )
         }
         <Switch>
-          <Route exact path="/">
-            <Main />
-          </Route>
+          <Route 
+            exact path="/"
+            component={Main}
+            />
           <Route path="/signup">
             <Register 
-              goLanding={goLanding} 
-              signIn={goSignIn}
               handleRegister={onRegister}
+              registerError={registerError}
+              handleRegisterError={setRegisterError}
+              goSignIn={goSignIn}
+              goLanding={goLanding} 
             />
           </Route>
           <Route path="/signin">
             <Login
-              goLanding={goLanding} 
-              signUp={goSignUp}
-            />
-          </Route>
-          <Route path="/profile">
-            <Profile 
+              handleLogin={onLogin}
+              loginError={loginError}
+              handleLoginError={setLoginError}
+              goSignUp={goSignUp}
               goLanding={goLanding}
             />
           </Route>
-          <Route path="/movies">
-            <Movies 
-              path='/movies'
-            />
-          </Route>
-          <Route path="/saved-movies">
-            <SavedMovies 
-              path='/saved-movies'
-            />
-          </Route>
-          {/* Redirect would be fix to real path in the next step */}
-          <Route path="/notFound">
+          <ProtectedRoute 
+            path="/profile"
+            loggedIn={loggedIn} 
+            isProfileEdit={isProfileEdit}
+            setProfileEdit={setProfileEdit}
+            profileError={profileError}
+            handleProfileError={setProfileError}
+            handleUpdateUser={handleUpdateUser}
+            handleSignOut={handleSignOut}
+            component={Profile}
+          />
+          <ProtectedRoute 
+            path="/movies"
+            loggedIn={loggedIn}
+            component={Movies}
+          />
+          <ProtectedRoute
+            path="/saved-movies"
+            loggedIn={loggedIn}
+            component={SavedMovies}
+          />
+          <Route path="*">
             <NotFoundPage 
               goBack={goBack}
             />
           </Route>
-          <Redirect from="*" to="/notFound" />
-           {/* Redirect would be fix to real path in the next step */}
+          <Route path="/">
+            {!loggedIn ? (<Redirect to="/movies" />) : (<Redirect to="/signin" />)}
+          </Route>
         </Switch>
       </div>
     </CurrentUserContext.Provider>

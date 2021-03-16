@@ -1,62 +1,112 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from '../Button/Button';
 import './Profile.css';
+import { useFormHook } from '../../utils/useFormHook';
+import { CurrentUserContext } from '../../contexts/UserContext';
 
-function Profile({goLanding}) {
+function Profile({
+  isProfileEdit,
+  setProfileEdit,
+  handleUpdateUser,
+  handleSignOut,
+  profileError,
+  handleProfileError
+}) {
 
-  const [ isEdit, setEdit ] = useState(false);
+  // assign CurrentUserContext
+  const currentUserData = useContext(CurrentUserContext);
 
-// fix function 
-  const onChange = () => {
-    console.log('меняем');
+  const {values, setValues, handleChange, errors, isValid} = useFormHook();
+
+  function editProfile(){
+    setProfileEdit(true);
   }
-// fix function 
 
-  const editProfile = () => {
-    if(isEdit) {
-      setEdit(false);
-    } else {
-      setEdit(true);
-    }
+  function handleSubmitForm(e){
+    e.preventDefault();
+    handleUpdateUser({
+      name: values.name,
+      email: values.email,
+    });
   }
+
+  useEffect(() => {
+    setValues({
+      name: currentUserData.name,
+      email: currentUserData.email
+    });
+  }, [currentUserData]);
+
+  useEffect(()=> {
+    handleProfileError('');
+  }, [values])
 
   return(
     <div className="profile">
       <div className="profile__data">
-        <h2 className="profile__heading">Привет, Виталий!</h2>
-        <form className="profile__form">
-          <label className="profile__label">Имя
-            <input className="profile__input" name="user" type="text" minLength="2" maxLength="40" required="" value="Виталий" onChange={onChange} disabled></input>
-          </label>
-          <label className="profile__label">Почта
-            <input className="profile__input" name="mail" type="mail" value="pochta@yandex.ru" onChange={onChange} disabled></input>
-          </label>
-        </form>  
-      </div>
-      <div className="profile__controllers">
-        { isEdit ? (
-          <>
-            <span className="profile__update-error">При обновлении профиля произошла ошибка.</span>
-            <Button 
-              mode='button_type_profile-save button_color_disabled' 
-              text='Сохранить'
-              handleClick={editProfile}
-            />
-          </> 
-        ) : (
-          <>
-            <Button 
-              mode='button_type_profile' 
-              text='Редактировать'
-              handleClick={editProfile}
-            />
-            <Button 
-              mode='button_type_profile button_color_signout' 
-              text='Выйти из аккаунта'
-              handleClick={goLanding}
-            />
-          </>)
-        }
+        <h2 className="profile__heading">{`Привет, ${currentUserData.name}!`}</h2>
+        <form
+          className="profile__form"
+          onSubmit={handleSubmitForm}
+          noValidate
+        >
+          <fieldset className="profile__fieldset">
+            <label className="profile__label">Имя
+              <input
+                className="profile__input"
+                name="name"
+                type="text"
+                minLength="2"
+                maxLength="40"
+                value={values.name || ''}
+                disabled={isProfileEdit ? false : true }
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label className="profile__label">Почта
+              <input
+                className="profile__input"
+                name="email"
+                type="email"
+                value={values.email || ''}
+                disabled={isProfileEdit ? false : true }
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <p className="profile__error">{errors.name || ''}</p>
+            <p className="profile__error">{errors.email || ''}</p>
+          </fieldset>  
+          <div className="profile__controllers">
+            { isProfileEdit ? (
+              <>
+                <span className="profile__update-error">{profileError}</span>
+                <Button 
+                  mode="button_type_profile-save"
+                  text="Сохранить"
+                  type="submit"
+                  isDisabled={!isValid}
+                />
+              </> 
+            ) : (
+              <>
+                <Button 
+                  mode="button_type_profile" 
+                  text="Редактировать"
+                  type="button"
+                  handleClick={editProfile}
+                />
+                <Button 
+                  mode="button_type_profile button_color_signout"
+                  text="Выйти из аккаунта"
+                  type="button"
+                  handleClick={handleSignOut}
+                />
+              </>)
+            }
+          </div>
+        </form>
       </div>
     </div>
   )

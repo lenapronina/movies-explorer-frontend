@@ -4,6 +4,7 @@ import './AsideMenu.css';
 
 function AsideMenu({
   isOpen,
+  loggedIn,
   closeMenu,
   signIn,
   signUp,
@@ -21,14 +22,15 @@ function AsideMenu({
       <div className="aside__menu">
         <button className="aside__close-button" onClick={closeMenu}></button>
         <Navigation
-            signIn={signIn}
-            signUp={signUp}
-            path={pathName}
-            goMovies={goMovies}
-            goProfile={goProfile}
-            goSavedMovies={goSavedMovies}
-            mobileMenu={mobileMenu}
-         />
+          signIn={signIn}
+          signUp={signUp}
+          path={pathName}
+          loggedIn={loggedIn}
+          goMovies={goMovies}
+          goProfile={goProfile}
+          goSavedMovies={goSavedMovies}
+          mobileMenu={mobileMenu}
+        />
       </div>
     </aside>
   )
