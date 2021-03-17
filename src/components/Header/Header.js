@@ -21,9 +21,10 @@ function Header({
   }
 
   const headerProfileType = (pathName ==='/') ? 'header_type_profile' : '';
+  const notFoundPath = (pathName ==='*') ? false : true;
   
   return (
-    !loggedIn ? (
+    (!loggedIn && !notFoundPath) ? (
       <header className={`header ${headerProfileType}`}>
         <div className="header__content">
           <button className="header__link" onClick={goLanding}><img className="header__logo" src={headerLogo} alt="Логотип сервиса" /></button>

@@ -2,15 +2,29 @@ import './SearchForm.css';
 import searchIcon from '../../images/search-icon.svg';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm(params) {
+function SearchForm({
+  values,
+  handleChange,
+  handleSubmit,
+  handleShortMovies
+}) {
+
   return(
     <div className="search search__checkbox-label">
-      <form className="search__form">
+      <form className="search__form" onSubmit={handleSubmit}>
         <img className="search__icon" alt="Иконка поиска" src={searchIcon}/>
-        <input className="search__input" placeholder="Фильм"></input>
+        <input
+          name="movie"
+          className="search__input"
+          placeholder="Фильм"
+          value={values.movie || ''} 
+          onChange={handleChange}
+        />
         <button className="search__button" type="submit"></button>
       </form>
-      <FilterCheckbox />
+      <FilterCheckbox 
+        handleShortMovies={handleShortMovies}
+      />
     </div>
     
   )

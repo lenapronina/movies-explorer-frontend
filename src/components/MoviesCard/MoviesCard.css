@@ -1,5 +1,5 @@
 .movie {
-  max-width: 364px;
+  width: 364px;
   max-height: 281px;
   background: #FDFDFD;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
@@ -81,7 +81,7 @@
 
 @media (max-width: 1250px) {
   .movie {
-    max-width: 339px;
+    width: 339px;
     max-height: 262px;
   }
   .movie__preview {
@@ -96,7 +96,7 @@
 
 @media (max-width: 700px) {
   .movie {
-    max-width: 300px;
+    width: 300px;
     max-height: 237px;
   }
   .movie__preview {

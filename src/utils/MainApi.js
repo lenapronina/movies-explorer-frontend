@@ -21,6 +21,75 @@ export const register = (name, email, password) => {
   .then(data => data);
 }
 
+export const getSavedMovies = (token) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }})
+    .then((res) => {
+      if(res.status === 200){
+        return res.json();
+      } else {
+        return Promise.reject('При получении данных произошла ошибка');
+      }
+    })
+    .then(data => data);
+}
+
+export const removeMovie = (token, movie) => {
+  return fetch(`${BASE_URL}/movies/${movie._id}`,{
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  })
+  .then((res) => {
+    if(res.status === 200){
+      return res.json();
+    } else {
+      return Promise.reject('При удалении фильма произошла ошибка');
+    }
+  })
+  .then(data => data);
+}
+
+export const saveMovie = (token, movie) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      country: movie.country,
+      director: movie.director,
+      duration: movie.duration,
+      year: movie.year,
+      description: movie.description,
+      image: movie.image,
+      trailer: movie.trailer,
+      thumbnail: movie.thumbnail,
+      nameRU: movie.nameRU,
+      nameEN: movie.nameEN,
+      movieId: movie.movieId,
+    })
+  })
+  .then((res) => {
+    if(res.status === 200){
+      return res.json();
+    } else {
+      return Promise.reject('При сохранении фильма произошла ошибка');
+    }
+  })
+  .then(data => data);
+}
+
 export const authorize = (email, password) => {
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',

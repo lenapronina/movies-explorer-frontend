@@ -2,27 +2,33 @@ import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css';
 
-function MoviesCardList({ path, badSearch }) {
+function MoviesCardList({ 
+  path,
+  moviesDisplayCount,
+  savedMovies, 
+  handleSaveCard,
+  handleRemoveCard
+}) {
 
   const moviesListPage = (path === '/saved-movies') ? ' saved-movies__movie-list' : ' movies__movies-list';
 
+  const moviesList = (path === '/saved-movies') ? savedMovies : moviesDisplayCount
+  
   return (
-    badSearch ? (
-      <div className="empty-list empty-list__search">
-        <p className="empty-list__message">Фильмы не найдены</p>
-      </div>
-    ) : (
-      <ul className={`movie-list ${moviesListPage}`}>
-      <MoviesCard path={path} />
-      <MoviesCard path={path} />
-      <MoviesCard path={path} /> 
-      <MoviesCard path={path} />
-      <MoviesCard path={path} />
-      <MoviesCard path={path} />
-      <MoviesCard path={path} />
-      <MoviesCard path={path} />
+    <ul className={`movie-list ${moviesListPage}`}>{
+      moviesList ? moviesList.map((movie) => (
+        <MoviesCard
+          key={movie.movieId}
+          filteredMovies={moviesDisplayCount}
+          savedMovies={savedMovies}
+          handleRemoveCard={handleRemoveCard}
+          handleSaveCard={handleSaveCard}
+          movieData={movie}
+          path={path} 
+        />
+      )): ('')
+      }
     </ul>
-    )
   )
 }
 
