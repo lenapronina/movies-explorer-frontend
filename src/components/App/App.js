@@ -252,7 +252,7 @@ function App() {
         }
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
         setLoginError(err); 
       });
   }
@@ -280,7 +280,6 @@ function App() {
     MainApi.getSavedMovies(localStorage.getItem('jwt'))
       .then((data) => {
         const filteredData = data.filter((item)=> item.owner === currentUser._id);
-        console.log(filteredData)
         setSavedMovies(filteredData);
       })
       .catch((err)=> console.log(err));

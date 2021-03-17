@@ -34,7 +34,6 @@ function SavedMovies({
   }
 
   const onSubmit = (e) => {
-    console.log(savedMovies)
     e.preventDefault();
     setSearching(true);
     filterMovies(savedMovies, values.movie, selectedShortMovies);
