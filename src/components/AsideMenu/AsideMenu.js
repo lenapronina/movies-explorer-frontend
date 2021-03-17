@@ -5,14 +5,14 @@ import './AsideMenu.css';
 function AsideMenu({
   isOpen,
   loggedIn,
+  mobileMenu,
   closeMenu,
   signIn,
   signUp,
   pathName,
   goMovies,
   goProfile,
-  goSavedMovies,
-  mobileMenu
+  goSavedMovies
 }) {
 
   const menuOpened = isOpen ? ' aside_opened' : '';

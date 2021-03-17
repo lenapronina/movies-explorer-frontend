@@ -46,7 +46,7 @@ function Movies({
     setSearching(true);
     filterMovies(initialMovies, values.movie, !selectedShortMovies);
     setSelectedShortMovies(!selectedShortMovies);
-    setTimeout(()=>{
+    setTimeout(() => {
       setSearching(false);
     }, 400)
   }

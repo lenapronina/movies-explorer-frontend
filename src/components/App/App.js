@@ -7,7 +7,11 @@ import {
   MOVIES_API_BASEURL,
   CARD_COUNT,
   CARD_COUNT_MORE,
-  SCREEN_WIDTH } from '../../utils/constants';
+  SCREEN_WIDTH,
+  DEFAULT_IMAGE_URL,
+  DEFAULT_TRAILER_URL,
+  ROUTES_WITHOUT_HEADER
+} from '../../utils/constants';
 
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -36,6 +40,8 @@ function App() {
 
   const history = useHistory();
 
+
+
   const { width } = useViewport();
 
   const [cardCount, setCardCount]= useState(0);
@@ -52,9 +58,6 @@ function App() {
   const [loginError, setLoginError] = useState('');
   const [profileError, setProfileError] = useState('');
 
-  const routes = ["/signup", "/signin", "/notFound"];
-
-  // check time, when search is starting
   const [isSearching, setSearching] = useState(false);
   const [searchMessage, setSearchMessage] = useState('');
   const [searchFail, setSearchFail] = useState(false); 
@@ -82,15 +85,14 @@ function App() {
                 duration: item?.duration  || 0,
                 year: item?.year  || 'Год не указан',
                 description: item?.description  || 'Нет описания',
-                image: item?.image?.url ? `${MOVIES_API_BASEURL}${item.image.url}` : '',
-                trailer: item?.trailerLink || '',
+                image: item?.image?.url ? `${MOVIES_API_BASEURL}${item.image.url}` : DEFAULT_IMAGE_URL,
+                trailer: item?.trailerLink || DEFAULT_TRAILER_URL,
                 thumbnail: '',
                 nameRU: item?.nameRU  || 'Нет названия',
                 nameEN: item?.nameEN  || 'Нет названия',
-                movieId: item?.id  || ''
+                movieId: item?.id  || 0
               }));
               
-          
               // update allMovies state + write to local storage
               setInintialMovies(resMovies);
               storeMovies(resMovies);
@@ -182,27 +184,28 @@ function App() {
     }  
   }
 
+  function setRoutePath(path){
+    history.push(path);
+    setPath(path);
+  }
+
   function goLanding(){
-    history.push('/');
-    setPath('/');
+    setRoutePath('/');
     resetSearchParams();
   }
 
   function goSignIn(){
-    history.push('/signin');
-    setPath('/signin');
+    setRoutePath('/signin');
     resetSearchParams();
   }
 
   function goSignUp(){
-    history.push('/signup');
-    setPath('/signup');
+    setRoutePath('/signup');
     resetSearchParams();
   }
 
   function goMovies(){
-    history.push('/movies');
-    setPath('/movies');
+    setRoutePath('/movies');
     resetSearchParams();
     if(mobileMenu){
       toggleMobileMenu();
@@ -210,18 +213,15 @@ function App() {
   }
 
   function goSavedMovies(){
-    history.push('/saved-movies');
-    setPath('/saved-movies');
+    setRoutePath('/saved-movies');
     resetSearchParams();
     if(mobileMenu){
       toggleMobileMenu();
     }
-
   }
 
   function goProfile(){
-    history.push('/profile');
-    setPath('/profile');
+    setRoutePath('/profile');
     resetSearchParams();
     if(mobileMenu){
       toggleMobileMenu();
@@ -247,8 +247,7 @@ function App() {
       .then((data) => {
         if (data.token) {
           setLoggedIn(true);
-          history.push('/movies');
-          setPath('/movies');
+          setRoutePath('/movies');
         }
       })
       .catch((err) => {
@@ -293,7 +292,6 @@ function App() {
       }
     })
     .catch((err)=> {
-      //handleRegisterSuccess(false);
       console.log(err)
       setRegisterError(err); 
     });
@@ -305,8 +303,7 @@ function App() {
     setLoggedIn(false);
     resetSearchParams();
     setSavedMovies([]);
-    history.push('/signin');
-    setPath('/signin');
+    setRoutePath('/signin');
   }
 
   const tokenCheck = () => {
@@ -337,7 +334,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
-        { useRouteMatch(routes) ?
+        { useRouteMatch(ROUTES_WITHOUT_HEADER) ?
           null
           : ( 
               <>
@@ -436,11 +433,12 @@ function App() {
             savedMovies={savedMovies}
             component={SavedMovies}
           />
-          <Route path="*">
+          <Route path="/notFound">
             <NotFoundPage 
               goBack={goBack}
             />
           </Route>
+          <Redirect from="*" to="/notFound" />
         </Switch>
       </div>
     </CurrentUserContext.Provider>

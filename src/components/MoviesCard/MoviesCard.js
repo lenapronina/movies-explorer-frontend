@@ -52,7 +52,6 @@ function MoviesCard({
     }
   }
 
-  
   // for movie without image
   const moviePreviewImage = (movieData.image === "") ? noPreview : movieData.image;
 

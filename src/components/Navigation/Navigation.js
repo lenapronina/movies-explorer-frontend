@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import accountIcon from '../../images/navigation-account-icon.svg';
 
 function Navigation({
+  path,
   loggedIn,
   mobileMenu,
   signIn,
