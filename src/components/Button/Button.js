@@ -4,11 +4,14 @@ import './Button.css';
 function Button({
   mode,
   text,
-  handleClick, 
-  children})
+  handleClick,
+  children,
+  isDisabled = false,
+})
 {
+ 
   return (
-    <button className={`button ${mode}`} onClick={handleClick}>
+    <button className={`button ${mode} ${isDisabled &&'button_color_disabled'}`} disabled={isDisabled} onClick={handleClick}>
       {text}{children}
     </button>
   )

@@ -20,9 +20,12 @@ function Header({
     clickMenu();
   }
 
+  const headerProfileType = (pathName ==='/') ? 'header_type_profile' : '';
+ 
+  
   return (
-    loggedIn ? (
-      <header className="header header_type_profile">
+    (!loggedIn) ? (
+      <header className={`header ${headerProfileType}`}>
         <div className="header__content">
           <button className="header__link" onClick={goLanding}><img className="header__logo" src={headerLogo} alt="Логотип сервиса" /></button>
            <Navigation
@@ -34,20 +37,21 @@ function Header({
         </div>
       </header> 
      ) : ( mobileMenu ? (
-      <header className="header">
+      <header className={`header ${headerProfileType}`}>
       <div className="header__content">
         <button className="header__link" onClick={goLanding}><img className="header__logo" src={headerLogo} alt="Логотип сервиса" /></button>
         <button onClick={openAsideMenu} className="header__burger-button"></button>
       </div>
     </header>
      ) : (
-      <header className="header">
+      <header className={`header ${headerProfileType}`}>
       <div className="header__content">
         <button className="header__link" onClick={goLanding}><img className="header__logo" src={headerLogo} alt="Логотип сервиса" /></button>
          <Navigation
             signIn={signIn}
             signUp={signUp}
             path={pathName}
+            loggedIn={loggedIn}
             goMovies={goMovies}
             goProfile={goProfile}
             goSavedMovies={goSavedMovies}
@@ -56,10 +60,7 @@ function Header({
       </div>
       </header> 
 
-     )
-
-     
-    )
+     ))
    
   )
 }

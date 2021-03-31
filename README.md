@@ -1,6 +1,8 @@
 # movies-explorer-frontend
 
-Верстка проекта movies-explorer
+Movies-explorer - сервис поиска докумментальных фильмов от BeatFilm.
+
+Фронтенд приложения: **dontbeatfilm.students.nomoredomains.work**
 
 ### Начать работу
 

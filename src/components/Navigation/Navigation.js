@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import accountIcon from '../../images/navigation-account-icon.svg';
 
 function Navigation({
+  path,
   loggedIn,
   mobileMenu,
   signIn,
@@ -14,7 +15,7 @@ function Navigation({
 }){
 
   return (
-    loggedIn ?  (
+    !loggedIn ?  (
       <div className="navigation navigation_type_profile">
         <Button
           mode={'button_type_landing button_position_landing'}

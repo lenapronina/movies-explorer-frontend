@@ -2,6 +2,11 @@
   "name": "movies-explorer-frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dontbeatfilm.students.nomoredomains.work",
+  "author": {
+    "name": "Lena Pronina",
+    "email": "emaya.lena@yandex.ru"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -13,6 +18,8 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "npm run build && scp -r ./build/* lenapronina@178.154.251.114:/home/lenapronina/movies-explorer-frontend/build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

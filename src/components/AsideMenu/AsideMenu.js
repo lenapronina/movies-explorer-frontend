@@ -4,14 +4,15 @@ import './AsideMenu.css';
 
 function AsideMenu({
   isOpen,
+  loggedIn,
+  mobileMenu,
   closeMenu,
   signIn,
   signUp,
   pathName,
   goMovies,
   goProfile,
-  goSavedMovies,
-  mobileMenu
+  goSavedMovies
 }) {
 
   const menuOpened = isOpen ? ' aside_opened' : '';
@@ -21,14 +22,15 @@ function AsideMenu({
       <div className="aside__menu">
         <button className="aside__close-button" onClick={closeMenu}></button>
         <Navigation
-            signIn={signIn}
-            signUp={signUp}
-            path={pathName}
-            goMovies={goMovies}
-            goProfile={goProfile}
-            goSavedMovies={goSavedMovies}
-            mobileMenu={mobileMenu}
-         />
+          signIn={signIn}
+          signUp={signUp}
+          path={pathName}
+          loggedIn={loggedIn}
+          goMovies={goMovies}
+          goProfile={goProfile}
+          goSavedMovies={goSavedMovies}
+          mobileMenu={mobileMenu}
+        />
       </div>
     </aside>
   )
