@@ -1,9 +1,9 @@
 # movies-explorer-frontend
-[Адрес сервиса](https://dontbeatfilm.students.nomoredomains.work)
 ![Project preview](./public/readme-image.png)
 
 ## О проекте
 Movies-explorer — сервис поиска документальных фильмов от BeatFilm. В приложении реализован поиск по ключевому слову, отдельно можно настроить фильтр для короткометражек. Фильмы можно добавлять в сохраненные, а по клику на карточку документалки перейти на страницу с трейлером фильма. Для использования сервиса необходима регистрация.
+[Ссылка на сервис](https://dontbeatfilm.students.nomoredomains.work)
 
 ### Функциональность
 Приложение реализовано на React JS с помощью функциональных компонентов. Для загрузки фильмов используется api от beatfilm; авторизация, добавление фильмов в сохраненные – через [movie-explorer-api](https://github.com/lenapronina/movies-explorer-api). 
